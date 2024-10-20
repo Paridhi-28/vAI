@@ -37,4 +37,12 @@ var siriWave = new SiriWave({
     }
 })
 
+// Mic button click event 
+$("#MicBtn").click(function () { 
+    eel.playAssistantSound()
+   $("#oval").attr("hidden", true);
+   $("#SiriWave").attr("hidden", false);
+    
+});
+
 });
