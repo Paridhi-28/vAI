@@ -7,3 +7,14 @@ import eel
 def playAssistantSound():
     music_dir = "client\\assets\\audio\\start_sound.mp3"
     playsound(music_dir)
+
+def openCommand(query):
+    query = query.replace(ASSISTANT NAME, "")
+    query = query.replace("open", "")
+    query.lower()
+
+    if query != "":
+        speak("Opening " + query)
+        os.system("start " + query)
+    else:
+        speak("not found")

@@ -42,7 +42,7 @@ $("#MicBtn").click(function () {
     eel.playAssistantSound()
    $("#oval").attr("hidden", true);
    $("#SiriWave").attr("hidden", false);
-    
+    eel.allCommands()()
 });
 
 });
