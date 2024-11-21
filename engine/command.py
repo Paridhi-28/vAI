@@ -1,15 +1,20 @@
 import pyttsx3
 import speech_recognition as sr
 import eel
+import time
 
 def speak(text):
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[0].id)
     engine.setProperty('rate', 174)
+    eel.DisplayMessage(text)
     engine.say(text)
     engine.runAndWait()
 
+
+# code for writing listing and recognising when mic button is active
+# code for converting speak into text 
 
 def takecommand():
     r = sr.Recognizer()
@@ -30,11 +35,14 @@ def takecommand():
         query = r.recognize_google(audio, language='en-in')
         print(f"user said : {query}")
         eel.DisplayMessage(query)
+        time.sleep(2)
         eel.ShowHood()
     except Exception as e:
         return ""
     
     return query.lower()
+
+# code for opening particular application said by user
 
 @eel.expose
 def allCommands():
@@ -42,6 +50,7 @@ def allCommands():
     print(query)
 
     if "open" in query:
-        print("i run")
+       from engine.features import openCommand
+       openCommand(query)
     else:
         print("not run")
