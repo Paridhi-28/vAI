@@ -81,7 +81,7 @@ def hotword():
             rate = porcupine.sample_rate,
             channels = 1,
             format  = pyaudio.paInt16,
-            input = True
+            input = True,
             framers_per_buffer = porcupine.frame_length)
 
         # loop for streaming

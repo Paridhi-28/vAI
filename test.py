@@ -16,7 +16,7 @@ def hotword():
             rate = porcupine.sample_rate,
             channels = 1,
             format  = pyaudio.paInt16,
-            input = True
+            input = True,
             framers_per_buffer = porcupine.frame_length
         )
 
@@ -46,3 +46,6 @@ def hotword():
             audio_stream.close()
         if paud is not None:
             paud.terminate() 
+
+
+hotword()
