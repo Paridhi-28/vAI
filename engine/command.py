@@ -8,7 +8,7 @@ def speak(text):
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[0].id)
     engine.setProperty('rate', 174)
-    eel.DisplayMessage(text)
+    eel.DisplayMessage(text) 
     engine.say(text)
     engine.runAndWait()
 
@@ -36,7 +36,6 @@ def takecommand():
         print(f"user said : {query}")
         eel.DisplayMessage(query)
         time.sleep(2)
-        eel.ShowHood()
     except Exception as e:
         return ""
     
@@ -46,11 +45,25 @@ def takecommand():
 
 @eel.expose
 def allCommands():
-    query = takecommand()
-    print(query)
 
-    if "open" in query:
-       from engine.features import openCommand
-       openCommand(query)
-    else:
-        print("not run")
+    try:
+        query = takecommand()
+        print(query)
+
+        if "open" in query:
+            from engine.features import openCommand
+            openCommand(query)
+
+        elif "on youtube":
+            from engine.features import PlayYoutube
+            PlayYoutube(query)
+
+        # elif "send message" in query or "phone cell" in query or "video call" in query:
+        #     from engine
+        else:
+            print("not run")
+        
+    except:
+        print("Error")
+
+    eel.ShowHood()  #this particular function will display the application opened by the user
