@@ -5,14 +5,15 @@ import eel
 from engine.features import *
 from engine.command import *
 
-eel.init("client")
+def start():
+    eel.init("client")
 
-playAssistantSound()
+    playAssistantSound()
 
 
-os.system('start msedge.exe --app="http:/localhost:8000/index.html"')
+    os.system('start msedge.exe --app="http:/localhost:8000/index.html"')
 
-eel.start('index.html',
+    eel.start('index.html',
           mode = None,
           host = "localhost",
           block = True)
