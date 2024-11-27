@@ -1,0 +1,15 @@
+flask
+transformers
+torch  
+pyttsx3
+speech_recognition
+eel
+time
+os
+re
+sqlite3
+struct
+webbrowser
+pvporcupine
+pyaudio
+pywhatkit
